@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>河南建筑职业技术学院·新生指南</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../bootstrap.min.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <div class="nav-tabs" style="justify-content: space-between; padding: 15px 40px;">
+        <div style="display: flex; gap: 30px;">
+            <a href="#" class="active" data-section="prepare">📋开学准备</a>
+            <a href="#" data-section="map">🗺️ 校园地图</a>
+            <a href="#" data-section="food">🍜 美食推荐</a>
+            <a href="#" data-section="route">🚌 到校路线</a>
+            <a href="#" class="work">👥 项目分工</a>
+        </div>
+        <div id="weatherWidget"
+            style="display: flex; align-items: center; gap: 8px; background: #f0f2f5; padding: 6px 14px; border-radius: 40px; font-size: 14px;">
+            <span>⏳</span>
+            <span>加载中...</span>
+        </div>
+    </div>
+    <!-- 轮播图 -->
+    <div class="carousel-container">
+        <button class="carousel-btn btn-prev" id="prevBtn">‹</button>
+        <img class="carousel-slide" id="carouselImg" src="" alt="校园风景">
+        <button class="carousel-btn btn-next" id="nextBtn">›</button>
+        <div class="dots" id="dots"></div>
+    </div>
+    <!-- 主内容区 -->
+    <div class="container">
+        <section id="prepare">
+            <h2>📋 开学必备清单</h2>
+
+            <div class="grid-2">
+                <div>
+                    <h3>📄 证件类</h3>
+                    <ul class="list " id="zhengjian">
+                        <li><input type="checkbox" name="" id=""> 录取通知书</li>
+                        <li><input type="checkbox" name="" id=""> 身份证及复印件</li>
+                        <li><input type="checkbox" name="" id=""> 证件照（一寸/两寸）</li>
+                        <li><input type="checkbox" name="" id=""> 团员档案</li>
+                    </ul>
+                    <button class="zheng">添加证件类清单</button>
+                </div>
+                <div>
+                    <h3>🧴 生活类</h3>
+                    <ul class="list" id="shenghuo">
+                        <li><input type="checkbox" name="" id=""> 床上用品</li>
+                        <li><input type="checkbox" name="" id=""> 洗漱用品</li>
+                        <li><input type="checkbox" name="" id=""> 薄厚衣服</li>
+                        <li><input type="checkbox" name="" id=""> 防晒产品</li>
+                    </ul>
+                    <button class="live">添加生活类清单</button>
+                </div>
+            </div>
+        </section>
+        <!-- modal -->
+        <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">清单标题</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>请输入要添加的事务</p>
+                        <input type="text" name="" id="" class="thing">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary add">确定添加</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="map">
+            <h2>🗺️ 校园地图速览</h2>
+            <div>
+                <img src="img/学校地图.jpg" alt="">
+            </div>
+
+        </section>
+        <section id="food">
+            <h2>🍜 校园美食推荐</h2>
+            <div class="marquee-container">
+                <div class="marquee-track" id="marqueeTrack">
+                    <!-- 卡片会由JS动态生成，方便修改 -->
+                </div>
+            </div>
+        </section>
+        <section id="route">
+            <h2>🚌 到校路线</h2>
+            <p>📍 预设起点：郑州站 / 郑州东站 / 客运南站 / 新郑机场</p>
+            <!-- 查询面板 -->
+            <div class="route-panel">
+                <div class="route-select-group">
+                    <label>📍 出发地</label>
+                    <select class="form-select" id="startSelect">
+                        <option value="">选择乘坐起点</option>
+                        <option value="郑州东站">🚄 郑州东站（高铁站）</option>
+                        <option value="郑州航空港">🚄 郑州航空港（高铁站）</option>
+                        <option value="郑州站">🚂 郑州站（火车站）</option>
+                        <option value="郑州客运南站">🚌 郑州客运南站(大巴)</option>
+                        <option value="新郑机场">✈️ 新郑机场(飞机)</option>
+                        <option value="许昌东站">🚇许昌东站</option>
+                    </select>
+                </div>
+                <button class="route-btn" id="routeBtn">🔍 查询路线</button>
+            </div>
+
+            <!-- 结果显示区 -->
+            <div class="route-result" id="routeResult">
+                <div class="scheme-tag">
+                    <h3></h3>
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="route-card">
+                    <div class="route-header">
+
+                    </div>
+                    <div class="route-steps">
+
+
+
+                    </div>
+                </div>
+                <div class="footer-note">
+                    🗺️ 路线数据由高德地图提供
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../../utils/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+    <script src="../../utils/axios.min.js"></script>
+</body>
+
+</html>
